@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
 import { DashboardCard } from "./components/DashboardCard";
 import { DashboardEmpty } from "./components/DashboardEmpty";
+import { getUserOrder } from "../../services/";
+import { useTitle } from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 export const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
-  const token = JSON.parse(sessionStorage.getItem("token"));
-  const cbid = JSON.parse(sessionStorage.getItem("cbid"));
+  useTitle("Dashboard");
   useEffect(() => {
     async function fetchOrders() {
-      const response = await fetch(
-        `http://localhost:3000/660/orders?user.id=${cbid}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      const data = await response.json();
-      setOrders(data);
+      try {
+        const data = await getUserOrder();
+        setOrders(data);
+      } catch (error) {
+        toast.error(error.message, { closeButton: true });
+      }
     }
     fetchOrders();
   }, []);

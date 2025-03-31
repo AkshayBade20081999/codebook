@@ -14,7 +14,7 @@ root.render(
       <CartProvider>
         <FilterProvider>
           <ScrollToTop />
-          <ToastContainer position="bottom-right" />
+          <ToastContainer closeButton={false} position="bottom-right" />
           <App />
         </FilterProvider>
       </CartProvider>
