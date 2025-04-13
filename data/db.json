@@ -292,9 +292,9 @@
   ],
   "users": [
     {
-      "email": "badeakshay77@gmail.com",
-      "password": "$2a$10$ibbo8OUR.LvCHkdOuuCILeeqkROYlSyKf1nSryNGvlkCuQn1Nhi2u",
-      "name": "Akshay Bade",
+      "email": "Akshay@example.com",
+      "password": "$2a$10$Ih/mNgwJ2iz3XSkCKpA5YOatYEtNPMExCbXDVHP5/P16Pfe.XME8K",
+      "name": "Akshay B. Bade",
       "id": 1
     }
   ]
